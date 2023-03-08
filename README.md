@@ -59,3 +59,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## laravel After Clone
+
+1. run command line -> composer install to generate depedencies in vendor folder
+2. change .env.example to .env
+3. run command line -> php artisan key:generate
+4. configure .env
+5. make mysql database with same name at .env
+6. run command line -> php artisan migrate
+7. run command line -> php artisan serve
+8. user terdaftar default role sebagai 'user'.
+9. ubah role user terdaftar menjadi 'admin' melalui database untuk mengakses fitur admin
+
