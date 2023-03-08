@@ -70,5 +70,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 6. run command line -> php artisan migrate
 7. run command line -> php artisan serve
 8. user terdaftar default role sebagai 'user'.
-9. ubah role user terdaftar menjadi 'admin' untuk mengakses fitur admin
+9. ubah role user terdaftar menjadi 'admin' melalui database untuk mengakses fitur admin
 
