@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/list-pelamar" class="nav-link {{ (request()->is('list-pelamar')) ? 'active' : '' }}">
+                    <a href="/list-pelamar" class="nav-link {{ (request()->is('list-pelamar*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Daftar Pelamar

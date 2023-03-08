@@ -25,11 +25,7 @@
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">PEKERJAAN</h1>
-                        </div>
-                    </div>
+                    <h1 class="m-3 text-dark text-center">RIWAYAT PEKERJAAN</h1>
                 </div>
                 <section class="content">
                     <div class="container">

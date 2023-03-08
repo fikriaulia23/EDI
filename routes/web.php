@@ -50,3 +50,5 @@ Route::get('/riwayat-pekerjaan', [App\Http\Controllers\ViewController::class, 'p
 // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin');
 
 Route::get('/list-pelamar', [App\Http\Controllers\ViewController::class, 'listPelamar'])->name('list-pelamar');
+Route::get('/list-pelamar/delete/{id}', [App\Http\Controllers\AdminController::class, 'deleteLamaran'])->name('delete-data-diri');
+Route::get('/list-pelamar/detail/{id}', [App\Http\Controllers\AdminController::class, 'detailLamaran'])->name('detail-data-diri');

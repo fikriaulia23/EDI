@@ -23,7 +23,7 @@ class ViewController extends Controller
         $email = auth()->user()->email;
         $data = $model->getLamaran($email);
 
-        return view('dashboard', ['inquiry' => 0, 'model' => $data]);
+        return view('dashboard', ['inquiry' => NULL, 'model' => $data]);
     }
 
     public function dataDiri()
@@ -58,9 +58,8 @@ class ViewController extends Controller
     public function listPelamar()
     {
         $model = new BiodataModel();
-        $email = auth()->user()->email;
-        $data = $model->getLamaran($email);
+        $data = $model->getAllPelamar();
 
-        return view('admin.list-pelamar', ['model' => $data]);
+        return view('admin.list-pelamar', ['inquiry' => NULL, 'model' => $data]);
     }
 }

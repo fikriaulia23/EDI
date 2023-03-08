@@ -29,6 +29,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
+                            @if (Auth::user()->role === 'admin' && request()->is('home'))
+                            <h1 class="m-0 text-dark">Dashboard</h1>
+                            @endif
+                            @if (Auth::user()->role === 'admin' && request()->is('list-pelamar*'))
+                            <h1 class="m-0 text-dark">Daftar Pelamar</h1>
+                            @endif
                             @if (Auth::user()->role === 'user' && request()->is('home'))
                             <h1 class="m-0 text-dark">List Lamaran</h1>
                             @endif
@@ -44,6 +50,8 @@
                 <div class="container-fluid">
                     @if (Auth::user()->role === 'admin' && request()->is('home'))
                     @include('admin.content-dashboard')
+                    @elseif (Auth::user()->role === 'admin' && request()->is('list-pelamar'))
+                    @include('admin.content-list-pelamar')
                     @elseif (Auth::user()->role === 'user' && request()->is('home*'))
                     @include('user.content-dashboard')
                     @elseif (Auth::user()->role === 'user' && request()->is('data-diri'))
