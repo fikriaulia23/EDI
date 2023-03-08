@@ -57,10 +57,25 @@ class UserController extends Controller
         }
     }
 
-    public function deleteLamaran(Request $request)
+    public function deleteLamaran($id)
     {
-        DB::table('biodata')->where('id', $request->id)->delete();
-        return redirect('/');
+        DB::beginTransaction();
+        try {
+            DB::delete('DELETE biodata, pendidikan, pelatihan, pekerjaan 
+                    FROM biodata 
+                    LEFT JOIN pendidikan ON biodata.id = pendidikan.id_biodata 
+                    LEFT JOIN pelatihan ON biodata.id = pelatihan.id_biodata 
+                    LEFT JOIN pekerjaan ON biodata.id = pekerjaan.id_biodata 
+                    WHERE biodata.id = ' . $id);
+
+            DB::commit();
+
+            return redirect('/');
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+            return redirect('/');
+        }
     }
 
     public function detailLamaran($id)
@@ -74,5 +89,101 @@ class UserController extends Controller
         $inquiryPekerjaan = $model->getDetailPekerjaan($id);
 
         return view('dashboard', ['inquiryPekerjaan' => $inquiryPekerjaan, 'inquiryPelatihan' => $inquiryPelatihan, 'inquiryPendidikan' => $inquiryPendidikan, 'inquiry' => $inquiry, 'model' => $data]);
+    }
+
+    public function createRiwayatPendidikan(Request $request)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+
+        $validated = $request->validate([
+            'id_biodata' => 'required',
+            'pendidikan_terakhir' => 'required',
+            'nm_institusi' => 'required',
+            'jurusan' => 'required',
+            'th_lulus' => 'required',
+            'ipk' => 'required'
+        ]);
+
+        $pendidikan_terakhir = addslashes($request->pendidikan_terakhir);
+        $nm_institusi = addslashes($request->nm_institusi);
+        $jurusan = addslashes($request->jurusan);
+        $th_lulus = addslashes($request->th_lulus);
+        $ipk = addslashes($request->ipk);
+
+        DB::beginTransaction();
+        try {
+            DB::insert('INSERT INTO pendidikan (id_biodata, pendidikan_terakhir, nm_institusi, jurusan, th_lulus, ipk, created_at, updated_at) values (' . "$request->id_biodata" . ', ' . "'$pendidikan_terakhir'" . ', ' . "'$nm_institusi'" . ', ' . "'$jurusan'" . ', ' . "$th_lulus" . ', ' . "'$ipk'" . ', ' . "'$date'" . ', ' . "'$date'" . ')');
+
+            DB::commit();
+
+            return redirect('/');
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+            return redirect('/pendidikan-terakhir');
+        }
+    }
+
+    public function createRiwayatPelatihan(Request $request)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+
+        $validated = $request->validate([
+            'id_biodata' => 'required',
+            'nm_kursus' => 'required',
+            'sertifikat' => 'required',
+            'tahun' => 'required'
+        ]);
+
+        $nm_kursus = addslashes($request->nm_kursus);
+        $sertifikat = addslashes($request->sertifikat);
+        $tahun = addslashes($request->tahun);
+
+        DB::beginTransaction();
+        try {
+            DB::insert('INSERT INTO pelatihan (id_biodata, nm_kursus, sertifikat, tahun, created_at, updated_at) values (' . "$request->id_biodata" . ', ' . "'$nm_kursus'" . ', ' . "'$sertifikat'" . ', ' . "$tahun" . ', ' . "'$date'" . ', ' . "'$date'" . ')');
+
+            DB::commit();
+
+            return redirect('/');
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+            return redirect('/riwayat-pelatihan');
+        }
+    }
+
+    public function createRiwayatPekerjaan(Request $request)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+
+        $validated = $request->validate([
+            'id_biodata' => 'required',
+            'nm_perusahaan' => 'required',
+            'posisi' => 'required',
+            'salary' => 'required',
+            'tahun' => 'required'
+        ]);
+
+        $nm_perusahaan = addslashes($request->nm_perusahaan);
+        $posisi = addslashes($request->posisi);
+        $salary = addslashes($request->salary);
+        $tahun = addslashes($request->tahun);
+
+        DB::beginTransaction();
+        try {
+            DB::insert('INSERT INTO pekerjaan (id_biodata, nm_perusahaan, posisi, salary, tahun, created_at, updated_at) values (' . "$request->id_biodata" . ', ' . "'$nm_perusahaan'" . ', ' . "'$posisi'" . ', ' . "$salary" . ', ' . "$tahun" . ', ' . "'$date'" . ', ' . "'$date'" . ')');
+
+            DB::commit();
+
+            return redirect('/');
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+            return redirect('/riwayat-pekerjaan');
+        }
     }
 }

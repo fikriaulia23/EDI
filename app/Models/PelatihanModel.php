@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PelatihanModel extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id_biodata',
+        'nm_kursus',
+        'sertifikat',
+        'tahun'
+    ];
 }

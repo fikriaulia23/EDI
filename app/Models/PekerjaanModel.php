@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PekerjaanModel extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id_biodata',
+        'nm_perusahaan',
+        'posisi',
+        'salary',
+        'tahun'
+    ]
 }

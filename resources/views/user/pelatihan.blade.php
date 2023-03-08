@@ -32,7 +32,8 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-6">
                                 <div class="card card-info">
-                                    <form class="form-horizontal">
+                                    <form method="POST" action="/create-riwayat-pelatihan" class="form-horizontal" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="card-body">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">POSISI LAMARAN</label>
@@ -47,7 +48,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Nama Kursus/Seminar</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="nama_pelatihan" class="form-control" required>
+                                                    <input type="text" name="nm_kursus" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -64,7 +65,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Tahun</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="tahun" class="form-control" required>
+                                                    <input type="number" name="tahun" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>

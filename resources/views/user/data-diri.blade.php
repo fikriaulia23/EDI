@@ -155,8 +155,8 @@
                                         <div class="card-footer">
                                             <button type="submit" class="btn btn-info float-right">Simpan</button>
                                         </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
                         </div>
                     </div>

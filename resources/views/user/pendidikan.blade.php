@@ -32,7 +32,8 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-6">
                                 <div class="card card-info">
-                                    <form class="form-horizontal">
+                                    <form method="POST" action="/create-pendidikan-terakhir" class="form-horizontal" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="card-body">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">POSISI LAMARAN</label>
@@ -65,7 +66,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">TAHUN LULUS</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="th_lulus" class="form-control" required>
+                                                    <input type="number" name="th_lulus" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -78,8 +79,8 @@
                                         <div class="card-footer">
                                             <button type="submit" class="btn btn-info float-right">Simpan</button>
                                         </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
                         </div>
                     </div>
