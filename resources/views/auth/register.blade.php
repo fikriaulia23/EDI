@@ -14,7 +14,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="#"><b>PT. LTE</b>/a>
+            <b>PT. Guest</b>
         </div>
 
         <div class="card">
@@ -38,6 +38,24 @@
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                        @error('username')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password" placeholder="Password">

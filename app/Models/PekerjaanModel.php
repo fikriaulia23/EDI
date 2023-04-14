@@ -14,5 +14,5 @@ class PekerjaanModel extends Model
         'posisi',
         'salary',
         'tahun'
-    ]
+    ];
 }

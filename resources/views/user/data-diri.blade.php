@@ -113,7 +113,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">EMAIL</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" name="email" class="form-control" required value="{{ Auth::user()->email }}">
+                                                    <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" required disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

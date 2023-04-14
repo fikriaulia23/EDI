@@ -30,6 +30,9 @@ Auth::routes();
 Route::get('/', function () {
     return redirect('/login');
 });
+Route::get('/docs', function () {
+    return redirect('swagger.index');
+});
 Route::get('/home', [App\Http\Controllers\ViewController::class, 'index'])->name('dashboard');
 
 Route::get('/home/delete/{id}', [App\Http\Controllers\UserController::class, 'deleteLamaran'])->name('delete-data-diri');

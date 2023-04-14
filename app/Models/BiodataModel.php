@@ -27,6 +27,41 @@ class BiodataModel extends Model
         'salary_target'
     ];
 
+    public function getData($id)
+    {
+        return DB::table('biodata as b')
+            ->where('b.id', $id)
+            ->get();
+    }
+
+    public function getDetailPelamar($id)
+    {
+        return DB::table('biodata as b')
+            ->where('b.id', $id)
+            ->get();
+    }
+
+    public function getPekerjaan($id)
+    {
+        return DB::table('pekerjaan as p')
+            ->where('p.id_biodata', $id)
+            ->get();
+    }
+
+    public function getPendidikan($id)
+    {
+        return DB::table('pendidikan as p')
+            ->where('p.id_biodata', $id)
+            ->get();
+    }
+
+    public function getPelatihan($id)
+    {
+        return DB::table('pelatihan as p')
+            ->where('p.id_biodata', $id)
+            ->get();
+    }
+
     public function getAllPelamar()
     {
         return DB::table('biodata')->get();
@@ -35,7 +70,7 @@ class BiodataModel extends Model
     public function getLamaran($email)
     {
         return DB::table('biodata')
-            ->where('user_email', $email)
+            ->where('email', $email)
             ->get();
     }
 

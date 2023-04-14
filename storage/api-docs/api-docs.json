@@ -1,0 +1,445 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API",
+        "description": "API OpenAPI/Swagger",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "fikri.aulia098@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+
+    "paths": {
+        "/api/greeting": {
+            "get": {
+                "tags": ["Greeting"],
+                "summary": "Returns a Sample API response",
+                "description": "A sample greeting to test out the API",
+                "operationId": "greet",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Kumpulan data user yang terdaftar",
+                "description": "Kumpulan data user yang terdaftar",
+                "operationId": "users",
+                "responses": {
+                    "default": {
+                        "description": "Data ditemukan"
+                    }
+                }
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Detail user berdasarkan email",
+                "description": "Detail user berdasarkan email",
+                "operationId": "userId",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Data ditemukan"
+                    }
+                }
+            }
+        },
+        "/api/lamaran/detail": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Detail lamaran kerja user",
+                "description": "Detail lamaran kerja user",
+                "operationId": "lamaran-user",
+                "parameters": [
+                    {
+                        "name": "id_lamaran",
+                        "in": "query",
+                        "description": "id_lamaran",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Data ditemukan"
+                    }
+                }
+            }
+        },
+        "/api/biodata/create": {
+            "post": {
+                "tags": ["User"],
+                "summary": "create biodata lamaran kerja user",
+                "description": "create biodata lamaran kerja user",
+                "operationId": "create-biodata-user",
+                "parameters": [
+                    {
+                        "name": "posisi_target",
+                        "in": "query",
+                        "description": "posisi_target",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nama",
+                        "in": "query",
+                        "description": "nama",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "no_ktp",
+                        "in": "query",
+                        "description": "nomor_ktp",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "t_tgl_lahir",
+                        "in": "query",
+                        "description": "tempat_tanggal_lahir",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "j_kelamin",
+                        "in": "query",
+                        "description": "jenis_kelamin",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "agama",
+                        "in": "query",
+                        "description": "agama",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "goldar",
+                        "in": "query",
+                        "description": "golongan_darah",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "status_pernikahan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "alamat_ktp",
+                        "in": "query",
+                        "description": "alamat_sesuai_ktp",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "alamat_tgl",
+                        "in": "query",
+                        "description": "alamat_domisili",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "alamat_email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "no_tlp",
+                        "in": "query",
+                        "description": "nomor_telepon",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "org_terdekat",
+                        "in": "query",
+                        "description": "orang_terdekat",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skill",
+                        "in": "query",
+                        "description": "skill",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "penempatan",
+                        "in": "query",
+                        "description": "penempatan_diluar_daerah",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "salary_target",
+                        "in": "query",
+                        "description": "expectation_salary",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Data berhasil diupdate"
+                    }
+                }
+            }
+        },
+        "/api/lamaran/delete": {
+            "delete": {
+                "tags": ["User"],
+                "summary": "Delete lamaran kerja user",
+                "description": "Delete lamaran kerja user",
+                "operationId": "lamaran-delete",
+                "parameters": [
+                    {
+                        "name": "id_lamaran",
+                        "in": "query",
+                        "description": "id_lamaran",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "posisi_target",
+                        "in": "query",
+                        "description": "posisi_target",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Data ditemukan"
+                    }
+                }
+            }
+        },
+        "/api/lamaran/put": {
+            "put": {
+                "tags": ["User"],
+                "summary": "update lamaran kerja user",
+                "description": "update lamaran kerja user",
+                "operationId": "lamaran-update",
+                "parameters": [
+                    {
+                        "name": "no_ktp",
+                        "in": "query",
+                        "description": "nomor_ktp",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "nama",
+                        "in": "query",
+                        "description": "nama",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "t_tgl_lahir",
+                        "in": "query",
+                        "description": "tempat_tanggal_lahir",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "j_kelamin",
+                        "in": "query",
+                        "description": "jenis_kelamin",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "agama",
+                        "in": "query",
+                        "description": "agama",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "goldar",
+                        "in": "query",
+                        "description": "golongan_darah",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "status_pernikahan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "alamat_ktp",
+                        "in": "query",
+                        "description": "alamat_sesuai_ktp",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "alamat_tgl",
+                        "in": "query",
+                        "description": "alamat_domisili",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "no_tlp",
+                        "in": "query",
+                        "description": "nomor_telepon",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "org_terdekat",
+                        "in": "query",
+                        "description": "orang_terdekat",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skill",
+                        "in": "query",
+                        "description": "skill",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "penempatan",
+                        "in": "query",
+                        "description": "penempatan_diluar_daerah",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "salary_target",
+                        "in": "query",
+                        "description": "expectation_salary",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Data ditemukan"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Greeting",
+            "description": "Hello^^"
+        },
+        {
+            "name": "User",
+            "description": "Endpoint data user"
+        }
+    ]
+}
